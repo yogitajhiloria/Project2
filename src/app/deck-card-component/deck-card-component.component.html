@@ -1,0 +1,43 @@
+<p>
+  Choose Higher or Lower
+</p>
+<div class="container">
+  <div class="row">
+    <button type="button" name="buttonHigh" *ngIf="!IsTried" class="col-md-2" (click)="ShowResult(1)">Higher</button>
+    <button type="button" name="buttonLow" *ngIf="!IsTried"  class="col-md-2" (click)="ShowResult(2)">Lower</button>
+  </div>
+<div class="" *ngIf="IsRunning">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="thumbnail">
+          <img [src]="deckCard.cards[0].image" alt=""  width="150px" height="200px" />
+
+        <div class="caption">
+          <img src="../images/user.png" alt="" title="Me" class="img-circle" width="50px" height="50px" />
+          <p>...</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2" *ngIf="Result<2">
+      <div class="thumbnail">
+          <img [src]="deckCard.cards[1].image" alt=""  width="150px" height="200px"/>
+
+        <div class="caption">
+          <h4>You</h4>
+          <p>...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" *ngIf="Result<2">
+    {{Result == 1 ? 'You Win!' :'Better Luck Next Time'}}
+  </div>
+</div>
+
+  <div class="row">
+
+    <button type="button" name="button" class="col-md-2" *ngIf="IsTried" (click)="ResetAll()">TryAgain</button>
+  </div>
+</div>
