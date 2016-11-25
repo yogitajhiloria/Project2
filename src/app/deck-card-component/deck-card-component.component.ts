@@ -102,6 +102,12 @@ buttonChoice:number;
   {
     this.deckofCardAPIService.DrawCards(this.deckid).subscribe(
       (decks)=>{
+
+        if(decks.cards[0].value == decks.cards[1].value )
+        {
+          console.log("got same cards");
+          this.DrawCard();
+        }
         this.deckCard=decks;
         this.IsTried=false;
         this.IsRunning=true;
